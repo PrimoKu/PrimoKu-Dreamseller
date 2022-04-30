@@ -1,0 +1,80 @@
+    <header class="header-global">
+        <nav id="navbar-main" aria-label="Primary navigation" class="navbar navbar-main navbar-expand-lg navbar-theme-bluegray headroom navbar-dark py-0">
+            <div class="container position-relative px-0">
+                <a class="navbar-brand mx-3" href="{% url 'home'%}">
+                    <img class="navbar-brand-dark" style="height: 80px; padding-right: 30px;" src="/static/assets/img/logoPhotos/primoku_logo.png" alt="PrimoKu logo">
+                </a>
+                <div class="navbar-collapse collapse me-auto" id="navbar_global">
+                    <div class="navbar-collapse-header">
+                        <div class="row">
+                            <div class="col-6 collapse-brand">
+                                <a href="{% url 'home'%}">
+                                    <img src="/static/assets/img/logoPhotos/primoku_logo.png" alt="PrimoKu logo">
+                                </a>
+                            </div>
+                            <div class="col-6 collapse-close">
+                                <a href="#navbar_global" class="fas fa-times" data-bs-toggle="collapse" data-bs-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" title="close" aria-label="Toggle navigation"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+                        <li class="nav-item">
+                            <a href="{% url 'home'%}" class="nav-link" style="margin-right: 20px;" id="homePage" aria-expanded="false">
+                                首頁 Home
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" id="frontPagesDropdown" aria-expanded="false" data-bs-toggle="dropdown">
+                                目錄 Pages
+                                <span class="fas fa-angle-down nav-link-arrow ms-1"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-lg px-0 p-lg-4" aria-labelledby="frontPagesDropdown">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h6 class="d-block text-bluegray">認識我</h6>
+                                        <hr class="dropdown-divider-bg mt-0">
+                                        <ul class="list-style-none">
+                                            <li class="mb-2 megamenu-item">
+                                                <a class="megamenu-link" href="{% url 'about'%}">About Me</a>
+                                            </li>
+                                            <li class="mb-2 megamenu-item">
+                                                <a class="megamenu-link" href="https://www.instagram.com/primoku.roha/">Instagram</a>
+                                            </li>
+                                            <li class="megamenu-item">
+                                                <a class="megamenu-link">YouTube</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-6">
+                                        <h6 class="d-block text-bluegray">Blogs</h6>
+                                        <hr class="dropdown-divider-bg mt-0">
+                                        <ul class="list-style-none">
+                                            <li class="mb-2 megamenu-item">
+                                                <a class="megamenu-link">售夢計畫</a>
+                                            </li>
+                                            <li class="mb-2 megamenu-item">
+                                                <a class="megamenu-link">旅遊日誌</a>
+                                            </li>
+                                            <li class="megamenu-item">
+                                                <a class="megamenu-link">小小作品</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="d-flex align-items-center">
+                    <!-- <a href=""
+                       class="btn btn-outline-gray-100 d-none d-lg-inline me-md-3"><span class="fas fa-sign-out-alt me-2"></span> 登出</a>
+                    <a href="" 
+                       target="_blank" class="btn btn-tertiary"><i class="fas fa-cloud-download-alt me-2"></i> Download</a> -->
+                    <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
