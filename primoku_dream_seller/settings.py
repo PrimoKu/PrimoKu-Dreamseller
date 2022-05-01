@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,13 +21,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure--i(vv^awtntx(bdwk1xn8@z9$wc6p8&1varw-jr-(rr*s$&)!+'
+SECRET_KEY = os.environ.get('SECRET_KEY', 
+                            'django-insecure--i(vv^awtntx(bdwk1xn8@z9$wc6p8&1varw-jr-(rr*s$&)!+')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = str(os.environ.get('DEBUG')) == "True"
 
 ALLOWED_HOSTS = []
-
+if not DEBUG:
+    ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(' ')
 
 # Application definition
 
@@ -119,6 +122,7 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [ BASE_DIR / 'static' ]
 
+STATIC_ROOT = BASE_DIR / 'staticfiles-cdn'
 MEDIA_URL = 'media/'
 
 MEDIA_ROOT = BASE_DIR / 'storages'
