@@ -25,11 +25,12 @@ SECRET_KEY = os.environ.get('SECRET_KEY',
                             'django-insecure--i(vv^awtntx(bdwk1xn8@z9$wc6p8&1varw-jr-(rr*s$&)!+')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = str(os.environ.get('DEBUG')) == "True"
+# DEBUG = str(os.environ.get('DEBUG')) == "True"
+DEBUG = True
 
-ALLOWED_HOSTS = []
-if not DEBUG:
-    ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(' ')
+ALLOWED_HOSTS = ['127.0.0.1','localhost','primoku.pythonanywhere.com']
+# if not DEBUG:
+#     ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(' ')
 
 # Application definition
 
