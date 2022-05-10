@@ -9,4 +9,7 @@ static/assets/node_modules
 static/assets/img
 staticfiles-cdn
 
+requirements.txt
+
 .env
+.ebextensions

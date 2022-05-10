@@ -25,12 +25,13 @@ SECRET_KEY = os.environ.get('SECRET_KEY',
                             'django-insecure--i(vv^awtntx(bdwk1xn8@z9$wc6p8&1varw-jr-(rr*s$&)!+')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = str(os.environ.get('DEBUG')) == "True"
-DEBUG = True
+DEBUG = str(os.environ.get('DEBUG')) == "True"
+# DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','localhost','primoku.pythonanywhere.com']
-# if not DEBUG:
-#     ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(' ')
+# ALLOWED_HOSTS = ['127.0.0.1','localhost','primoku.pythonanywhere.com']
+ALLOWED_HOSTS = []
+if not DEBUG:
+    ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(' ')
 
 # Application definition
 
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -78,12 +80,21 @@ WSGI_APPLICATION = 'primoku_dream_seller.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',  #PostgreSQL
+        'NAME': 'primoku_dreamseller',  #資料庫名稱
+        'USER': 'postgres',  #資料庫帳號
+        'PASSWORD': '12345678',  #資料庫密碼
+        'HOST': 'localhost',  #Server(伺服器)位址
+        'PORT': '5432'  #PostgreSQL Port號
     }
 }
 
+AUTH_USER_MODEL = 'users.User'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -115,7 +126,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-
+DATETIME_FORMAT = 'Y-m-d H:M:S'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
@@ -123,7 +134,7 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [ BASE_DIR / 'static' ]
 
-STATIC_ROOT = BASE_DIR / 'staticfiles-cdn'
+STATIC_ROOT = 'staticfiles-cdn'
 MEDIA_URL = 'media/'
 
 MEDIA_ROOT = BASE_DIR / 'storages'
